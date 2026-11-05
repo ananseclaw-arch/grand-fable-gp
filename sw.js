@@ -1,6 +1,6 @@
 /* Grand Fable GP standalone service worker. Scope: this folder only ('./').
    Shares an origin with the Learning Zone, so it ONLY ever creates / deletes caches whose name starts with "gfgp-". */
-const VERSION = "ae8cf94-202611051749";   // tools/build_standalone.sh writes the Learning Zone commit + date here on every build
+const VERSION = "af03139-202611051812";   // tools/build_standalone.sh writes the Learning Zone commit + date here on every build
 const CACHE = "gfgp-" + VERSION;
 const CORE = ["./", "./index.html", "./app-shim.js", "./race3d.js", "./manifest.webmanifest", "./vendor/three.r128.min.js", "./assets/vendor/GLTFLoader.r128.js",
   "./icon-180.png", "./icon-192.png", "./icon-512.png", "./assets/world/title.webp"];
