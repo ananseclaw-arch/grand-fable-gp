@@ -42,7 +42,7 @@ function loadThree(){return new Promise((res,rej)=>{if(window.THREE)return res()
 function renderHome(){clearTimers();document.body.classList.remove("learningworld");
   const best=P.race||{},wins=Object.values(best).filter(b=>b&&b.place===1).length;
   app.innerHTML='<div class="gf-title fadein"><div class="gf-hero"><img src="assets/world/title.webp" alt="" onerror="this.remove()"></div>'
-   +'<div class="gf-panel"><h1>GRAND FABLE <em>GP</em></h1><p>18 real 3D cars · 7 tracks · boost, jumps and drifts</p>'
+   +'<div class="gf-panel"><h1>GRAND FABLE <em>GP</em></h1><p>18 real 3D cars · 9 tracks · new: Japan Countryside</p>'
    +'<button class="gf-play" onclick="sfx(\'tick\');renderRace()">▶ PLAY</button>'
    +'<div class="gf-row"><button class="gf-sm" onclick="sfx(\'tick\');renderCircuits()">🏁 Tracks</button><button class="gf-sm" onclick="sfx(\'tick\');renderCircuits(\'opts\')">⚙️ Options</button></div>'
    +(wins?'<p class="gf-note">🏆 '+wins+' track win'+(wins>1?'s':'')+' · '+(P.xp|0)+' XP</p>':'<p class="gf-note">Your cars, upgrades and best times are saved on this device.</p>')+'</div></div>';}
