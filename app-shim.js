@@ -7,8 +7,9 @@ const GF_KEY="gfgp_v1";
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");};
-function gfNewProfile(){return{v:1,name:"Racer",xp:0,race:{},trophies:[],gpCar:"falcon",gpMode:"race",gpPace:"gentle",gpAuto:false,gpTraffic:true,gpLaps:2,gpCam:"chase",gpLook:"real",gpUp:{}};}
-function gfLoad(){try{const raw=localStorage.getItem(GF_KEY);if(raw){const p=JSON.parse(raw);if(p&&typeof p==="object")return Object.assign(gfNewProfile(),p);}}catch(e){}return gfNewProfile();}
+/* no default name (job 1107-2317): every device used to be "Racer", so two home-screen apps in one room shared a name; with none, Race a friend shows each player as their car + colour */
+function gfNewProfile(){return{v:1,name:"",xp:0,race:{},trophies:[],gpCar:"falcon",gpMode:"race",gpPace:"gentle",gpAuto:false,gpTraffic:true,gpLaps:2,gpCam:"chase",gpLook:"real",gpUp:{}};}
+function gfLoad(){try{const raw=localStorage.getItem(GF_KEY);if(raw){const p=JSON.parse(raw);if(p&&typeof p==="object"){if(p.name==="Racer")p.name="";return Object.assign(gfNewProfile(),p);}}}catch(e){}return gfNewProfile();}
 let P=gfLoad();
 function save(){try{localStorage.setItem(GF_KEY,JSON.stringify(P));}catch(e){}}
 const app=$("app");
